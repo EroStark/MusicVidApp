@@ -10,7 +10,7 @@ class LinkList extends Component {
   render() {
     const { state } = this.props;
 
-    const allList = state.allMemes.map((item) => {
+    const allList = state.allVids.map((item) => {
       return (
         <Link to={`/links/${item.id}`} style={{ textDecoration: 'none' }}>
           <li id={item.id}>

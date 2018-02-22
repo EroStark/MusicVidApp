@@ -4,7 +4,7 @@ import LinkList from './linklist';
 import SingleLink from './singlelink';
 import NewLink from './newLink';
 
-const Links = ({ state, getAllLinks, getSingleLink, createNewLink }) => {
+const Links = ({ state, getAllLinks, getSingleLink, createNewLink , commentState, getCommentsOnId, createNewComment}) => {
   const renderLinkList = () => {
     return (
       <LinkList state={state} getAllLinks={getAllLinks} />
@@ -14,7 +14,7 @@ const Links = ({ state, getAllLinks, getSingleLink, createNewLink }) => {
   const renderSingleLink = (props) => {
     const { id } = props.match.params;
     return (
-      <SingleLink state={state} getSingleLink={getSingleLink} id={id}  />
+      <SingleLink state={state} getSingleLink={getSingleLink} id={id}  commentState = {commentState} getCommentsOnId={getCommentsOnId} createNewComment={createNewComment}/>
     )
   }
 

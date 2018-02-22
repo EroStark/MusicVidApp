@@ -19,7 +19,7 @@ class LinksContainer extends React.Component {
     dispatch({type: "CREATE_NEW", title: title , url: link})
   }
 
-  getCommentOnId = (onId) => {
+  getCommentsOnId = (onId) => {
     const { dispatch } = this.props;
     dispatch({type: "GET_COMMID", onId: onId})
   }
@@ -30,7 +30,7 @@ class LinksContainer extends React.Component {
   }
 
   render() {
-    const { links } = this.props;
+    const { links , comments } = this.props;
 
     return (
       <Links
@@ -38,7 +38,8 @@ class LinksContainer extends React.Component {
         getAllLinks={this.getAllLinks}
         getSingleLink={this.getSingleLink}
         createNewLink = {this.createNewLink}
-        getCommentOnId = {this.getCommentOnId}
+        commentState ={comments}
+        getCommentsOnId = {this.getCommentsOnId}
         createNewComment = {this.createNewComment}
       />
     );

@@ -4,7 +4,7 @@ class NewLink extends Component {
     constructor(){
         super();
         this.state= {
-            newMeme: "",
+            newVid: "",
             newUrl: ""
         }
     }
@@ -17,8 +17,8 @@ class NewLink extends Component {
 
     handleSubmit = () => {
         const {createNewLink} = this.props
-        const {newMeme, newUrl} = this.state
-        createNewLink(newMeme , newUrl)
+        const {newVid, newUrl} = this.state
+        createNewLink(newVid , newUrl)
         this.setState({
             newMeme: "",
             newUrl: ""
@@ -26,11 +26,11 @@ class NewLink extends Component {
     }
 
     render () {
-        const {newUrl , newMeme} = this.state
-        console.log('newUrl', newUrl , 'newMeme' , newMeme)
+        const {newUrl , newVid} = this.state
+        console.log('newUrl', newUrl , 'newVid' , newVid)
         return (
           <div>
-            <div> <label>WAVE TITLE  <input name="newMeme" value={this.state.newMeme}
+            <div> <label>WAVE TITLE  <input name="newVid" value={this.state.newVid}
                             onInput={this.handleInputChange}/></label> </div>
             <div> <label>WAVE ID <sub>[end of link ex.bLr74OlNAmM]</sub> <input name="newUrl" value={this.state.newUrl}
                             onInput={this.handleInputChange}/> </label></div>

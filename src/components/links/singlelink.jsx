@@ -9,7 +9,9 @@ class SingleLink extends Component {
     }
   
   componentDidMount () {
+    console.log('first thing', this.props.id)
     this.props.getSingleLink(this.props.id);
+    this.props.getCommentsOnId(this.props.id);
   }
 
   handleInputChange = e =>{
@@ -21,23 +23,37 @@ class SingleLink extends Component {
  handleSubmit = () => {
         const {createNewComment , id} = this.props
         const {newComment} = this.state
+
+        console.log('onId', )
         createNewComment(newComment , id)
+        this.props.getCommentsOnId(this.props.id)
         this.setState({
             newComment: ""
         })
   }
 
   render () {
-    const { state } = this.props;
+    const { state,commentState } = this.props;
     const {newComment} = this.state
 
-    console.log(newComment)
+    const allList = commentState.specificComments.map((comment) => {
+      console.log('got here',comment)
+      return (
+          <li id={comment.id}>
+            {comment.comment}
+          </li>      
+      )
+    });
+
+    console.log('commentState' , commentState)
+
+    
     return (
       <div class="oneVid">
-        <h3>{state.oneMeme.title}</h3>
+        <h3>{state.oneVid.comment}</h3>
         
         <iframe width="460" height="346"
-          src={state.oneMeme.url} >
+          src={state.oneVid.url} >
         </iframe>
         <br/>
         <div>
@@ -49,6 +65,12 @@ class SingleLink extends Component {
           <input placeholder="Add A Comment ..."  size="69" name="newComment"
           value={this.state.newUrl} onInput={this.handleInputChange} />
           <button onClick={this.handleSubmit}> Submit </button> 
+        </div>
+
+        <div>
+          <ul>
+            {allList}
+          </ul>
         </div>
 
       </div>

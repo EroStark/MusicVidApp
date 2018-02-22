@@ -4,7 +4,7 @@ import Comments from '../components/comments/comments'
 
 class commcontainer extends Component {
 
-    getCommentOnId = (onId) => {
+    getCommentsOnId = (onId) => {
         const { dispatch } = this.props;
         dispatch({type: "GET_COMMID", comment: comment , onId: onId})
       }
